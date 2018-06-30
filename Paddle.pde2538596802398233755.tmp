@@ -1,0 +1,69 @@
+class Paddle{
+  
+  private int triX1 = 300;
+  private int triX2 = 500;
+  private int triX3 = width/2;
+  
+  private int triY1 = height - 60;
+  private int triY2 = height - 60;
+  private int triY3 = height - 10;
+  
+  private int paddleSpeed = 3;
+  
+  private boolean moveRight = true;
+  
+  void drawPaddle(){
+    
+    noStroke();
+    fill(255);
+    triangle(triX1, triY1, triX2, triY2, triX3, triY3);
+    
+  } //  Closing drawPaddle method
+  
+  void movePaddle(){
+    /*
+    if (moveRight != true){
+      
+      if( (keyPressed) && (key == 'z' || key == 'Z') ){
+        
+      triX1 = triX1 + paddleSpeed;
+      triX2 = triX2 + paddleSpeed;
+      triX3 = triX3 + paddleSpeed;
+      
+      } // Closing if key pressed z
+    
+    else if ( (keyPressed) && (key == 'v' || key == 'V') ){
+      
+      triX1 = triX1 - paddleSpeed;
+      triX2 = triX2 - paddleSpeed;
+      triX3 = triX3 - paddleSpeed;
+      
+      } // Closing if key pressed v
+    } // closing initial if moveRight
+    
+    */
+    if(moveRight != true){
+      triX1 = triX1 + 3;
+      triX2 = triX2 + 3;
+      triX3 = triX3 + 3;}
+      else{
+        triX1 = triX1 - 3;
+      triX2 = triX2 - 3;
+      triX3 = triX3 - 3;}
+        
+    
+  } // Closing movePaddle method
+  
+  void paddleRestrictions(){
+    
+    if (triX1 <= width - 790){
+      moveRight = false;
+    }
+    
+    if (triX2 >= width - 10){
+      moveRight = true;
+    }
+    
+  } // Closing paddleRestrictions method
+  
+} // Closing Paddle class
